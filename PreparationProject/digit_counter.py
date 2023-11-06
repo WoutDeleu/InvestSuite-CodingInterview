@@ -1,5 +1,3 @@
-import decimal
-import fractions
 from numbers import Number
 from fractions import Fraction
 from decimal import Decimal
@@ -8,7 +6,7 @@ from decimal import Decimal
 def digit_counter(n) -> int:
     """
     Count the number of digits in a positive integer.
-    :param n: any Python type in the standard library that behaves as a number
+    :param n: a numeric value / any Python type in the standard library that behaves as a number
     :return: the number of digits needed to write the integer part of that number
     """
     verify_input_type(n)
@@ -32,4 +30,4 @@ def verify_input_type(n) -> None:
     :raises TypeError: if input doesn't have the correct type
     """
     if not isinstance(n, (Fraction, Decimal, bool, Number)):
-        raise TypeError
+        raise TypeError("Input must be of type Fraction, Decimal, bool, or Number.")
