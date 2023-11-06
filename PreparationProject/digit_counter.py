@@ -28,7 +28,7 @@ def digit_counter(n) -> int:
 def verify_input_type(n) -> None:
     """
     Verifies if input has the correct type (Fraction, Decimal, bool, Number)
-    :param n: will be checked on type
+    :param n: will be checked on the correct type
     :raises TypeError: if input doesn't have the correct type
     """
     if not isinstance(n, (Fraction, Decimal, bool, Number)):
