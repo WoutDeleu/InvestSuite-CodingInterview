@@ -8,4 +8,3 @@ def test_base_scenarios():
     assert digit_counter(3.1415) == 1
     assert digit_counter(0.1) == 0
 
-
