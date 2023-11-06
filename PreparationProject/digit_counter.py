@@ -1,20 +1,35 @@
+import decimal
+import fractions
 from numbers import Number
+from fractions import Fraction
+from decimal import Decimal
 
 
-def digit_counter(n: Number):
+def digit_counter(n) -> int:
     """
     Count the number of digits in a positive integer.
-    :param n: a positive integer
-    :return: the number of digits in n
+    :param n: any Python type in the standard library that behaves as a number
+    :return: the number of digits needed to write the integer part of that number
     """
-    # Input-checker
-    if not isinstance(n, Number):
-        raise TypeError
+    verify_input_type(n)
 
-    value: int = int(n)
-    counter = 0
-    while value >= 1 or value <= -1:
-        value = int(value / 10)
+    # Get real part, in case of complex numbers
+    n = n.real
+
+    counter: int = 0
+    while n >= 1 or n <= -1:
+        # Each loop moves shifts all digits to the right
+        n /= 10
         counter += 1
 
     return counter
+
+
+def verify_input_type(n) -> None:
+    """
+    Verifies if input has the correct type (Fraction, Decimal, bool, Number)
+    :param n: will be checked on type
+    :raises TypeError: if input doesn't have the correct type
+    """
+    if not isinstance(n, (Fraction, Decimal, bool, Number)):
+        raise TypeError
